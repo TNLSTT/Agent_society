@@ -26,7 +26,7 @@ CONVERT_RETURN = 16
 CONVERT_TIME = 2
 
 TRADE_SEND = 5
-TRADE_PRICE = 6
+TRADE_PRICE = 5
 TRADE_COMM_COST = 1
 TRADE_TIME = 1
 
@@ -34,6 +34,8 @@ IDLE_COST = 1
 IDLE_TIME = 1
 
 ENV_DECAY = 1
+BASE_DECAY = 1
+SCARCITY_TARGET = 800
 SKILLS = ("gather", "convert", "trade")
 
 
@@ -47,6 +49,7 @@ class Agent:
     memory: Deque[str] = field(default_factory=lambda: deque(maxlen=MEMORY_LIMIT))
     action_counts: Counter = field(default_factory=Counter)
     trade_count: int = 0
+    raw_material: int = 0
 
     def observe(self, population: List["Agent"], rng: random.Random) -> Dict[str, object]:
         candidates = [agent for agent in population if agent.agent_id != self.agent_id]
@@ -172,39 +175,68 @@ def apply_action(
     target_id: Optional[int],
     population_by_id: Dict[int, Agent],
 ) -> None:
+    def diminishing_factor(energy: int) -> float:
+        return max(0.3, 1.0 - (energy / 2000))
+
     energy_before = agent.energy
     interaction = ""
     time_penalty = IDLE_TIME
 
     if action == "gather":
-        agent.energy -= GATHER_COST
-        agent.energy += GATHER_GAIN
+        gain = int(GATHER_GAIN * diminishing_factor(agent.energy))
+        agent.raw_material += 5
+        agent.energy += gain - GATHER_COST
         time_penalty = GATHER_TIME
-        interaction = f"gained:{GATHER_GAIN - GATHER_COST}"
+        interaction = f"gained:{gain - GATHER_COST}:raw_material:{agent.raw_material}"
         agent.reputation += 0.05
     elif action == "convert":
         agent.energy -= CONVERT_COST
-        agent.energy += CONVERT_RETURN
+        gain = int(CONVERT_RETURN * diminishing_factor(agent.energy))
+        if agent.raw_material >= 3:
+            agent.raw_material -= 3
+            agent.energy += gain
+            interaction = f"converted:{gain - CONVERT_COST}:raw_material:{agent.raw_material}"
+            agent.reputation += 0.1
+        else:
+            agent.energy -= 2
+            interaction = f"failed_convert:no_raw_material:penalty:{CONVERT_COST + 2}"
+            agent.reputation -= 0.05
         time_penalty = CONVERT_TIME
-        interaction = f"converted:{CONVERT_RETURN - CONVERT_COST}"
-        agent.reputation += 0.1
     elif action == "trade":
         time_penalty = TRADE_TIME
         if target_id is not None and target_id in population_by_id and target_id != agent.agent_id:
             target = population_by_id[target_id]
-            total_cost = TRADE_SEND + TRADE_COMM_COST
+            wealth_factor = max(1, agent.energy / 200)
+            trade_cost = int(TRADE_COMM_COST * wealth_factor)
+            total_cost = TRADE_SEND + trade_cost
             if agent.energy > total_cost:
                 agent.energy -= total_cost
-                target.energy += TRADE_SEND
+                if random.random() < 0.5:
+                    transfer_amount = min(5, agent.raw_material)
+                    if transfer_amount > 0:
+                        agent.raw_material -= transfer_amount
+                        target.raw_material += transfer_amount
+                        interaction = (
+                            f"sold_raw_material:{transfer_amount}:to:{target_id}:price:{TRADE_PRICE}"
+                        )
+                        target.memory.append(
+                            f"tick:{tick}:bought_raw_material:{transfer_amount}:from:{agent.agent_id}"
+                        )
+                    else:
+                        target.energy += TRADE_SEND
+                        interaction = f"sold_energy:{TRADE_SEND}:to:{target_id}:price:{TRADE_PRICE}"
+                        target.memory.append(f"tick:{tick}:bought_energy:{TRADE_SEND}:from:{agent.agent_id}")
+                else:
+                    target.energy += TRADE_SEND
+                    interaction = f"sold_energy:{TRADE_SEND}:to:{target_id}:price:{TRADE_PRICE}"
+                    target.memory.append(f"tick:{tick}:bought_energy:{TRADE_SEND}:from:{agent.agent_id}")
                 agent.energy += TRADE_PRICE
-                interaction = f"sold:{TRADE_SEND}:to:{target_id}:price:{TRADE_PRICE}"
                 agent.trade_count += 1
                 target.trade_count += 1
                 agent.reputation += 0.2
                 target.reputation += 0.05
-                target.memory.append(f"tick:{tick}:bought:{TRADE_SEND}:from:{agent.agent_id}")
             else:
-                agent.energy -= TRADE_COMM_COST
+                agent.energy -= trade_cost
                 interaction = f"failed_trade:{target_id}:insufficient_energy"
                 agent.reputation -= 0.1
         else:
@@ -232,9 +264,13 @@ def apply_action(
 
 
 def update_environment(connection: sqlite3.Connection, tick: int, agents: List[Agent]) -> None:
+    total_energy = sum(agent.energy for agent in agents)
+    scarcity_pressure = max(0.5, min(2.0, total_energy / SCARCITY_TARGET))
+    dynamic_decay = int(BASE_DECAY * scarcity_pressure)
+
     for agent in agents:
-        agent.energy = max(agent.energy - ENV_DECAY, 0)
-        agent.memory.append(f"tick:{tick}:decay:{ENV_DECAY}")
+        agent.energy = max(agent.energy - dynamic_decay, 0)
+        agent.memory.append(f"tick:{tick}:decay:{dynamic_decay}")
 
     total_energy = sum(agent.energy for agent in agents)
     scarcity = max(0, 1000 - total_energy)
