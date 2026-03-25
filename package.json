@@ -1,0 +1,14 @@
+{
+  "name": "agent-society-web",
+  "version": "1.0.0",
+  "description": "NPM web app for running and visualizing Agent Society simulation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "simulate": "python3 scripts/generate_data.py",
+    "dev": "npm run simulate && npm start"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

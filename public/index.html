@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Society Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <div>
+          <h1>Agent Society Visual Dashboard</h1>
+          <p>Run the simulation and explore scarcity, energy, and behavior dynamics.</p>
+        </div>
+        <button id="rerunBtn">🔁 Rerun Simulation</button>
+      </header>
+
+      <section id="stats" class="stats-grid"></section>
+
+      <section class="charts-grid">
+        <article class="card"><h2>Total Energy Over Time</h2><canvas id="energyChart"></canvas></article>
+        <article class="card"><h2>Scarcity Pressure</h2><canvas id="scarcityChart"></canvas></article>
+        <article class="card"><h2>Action Distribution</h2><canvas id="actionChart"></canvas></article>
+        <article class="card"><h2>Energy Delta by Agent</h2><canvas id="deltaChart"></canvas></article>
+      </section>
+
+      <section class="card table-card">
+        <h2>Agent Outcomes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Agent</th>
+              <th>Skill</th>
+              <th>Final Energy</th>
+              <th>Reputation</th>
+              <th>Trades</th>
+              <th>Dominant Action</th>
+            </tr>
+          </thead>
+          <tbody id="agentRows"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

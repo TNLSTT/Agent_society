@@ -318,21 +318,26 @@ def summarize(agents: List[Agent]) -> None:
     print(f"specialization_patterns={dict(dominant_actions)}")
 
 
+def run_simulation(connection: sqlite3.Connection, rng: random.Random, ticks: int = TICKS) -> List[Agent]:
+    initialize_database(connection)
+    agents = create_agents(connection, rng)
+    population_by_id = {agent.agent_id: agent for agent in agents}
+
+    for tick in range(ticks):
+        for agent in agents:
+            observation = agent.observe(agents, rng)
+            action, target_id = agent.decide(observation)
+            apply_action(connection, tick, agent, action, target_id, population_by_id)
+        update_environment(connection, tick, agents)
+
+    return agents
+
+
 def main() -> None:
     rng = random.Random(SEED)
     connection = sqlite3.connect(DB_PATH)
     try:
-        initialize_database(connection)
-        agents = create_agents(connection, rng)
-        population_by_id = {agent.agent_id: agent for agent in agents}
-
-        for tick in range(TICKS):
-            for agent in agents:
-                observation = agent.observe(agents, rng)
-                action, target_id = agent.decide(observation)
-                apply_action(connection, tick, agent, action, target_id, population_by_id)
-            update_environment(connection, tick, agents)
-
+        agents = run_simulation(connection, rng, ticks=TICKS)
         summarize(agents)
     finally:
         connection.close()

@@ -1,0 +1,654 @@
+{
+  "meta": {
+    "seed": 7,
+    "ticks": 100,
+    "agent_count": 8,
+    "gini_coefficient": 0.6386,
+    "skill_distribution": {
+      "convert": 2,
+      "gather": 4,
+      "trade": 2
+    },
+    "trade_actions": 355
+  },
+  "ticks": [
+    {
+      "tick": 0,
+      "scarcity": 312,
+      "total_energy": 688
+    },
+    {
+      "tick": 1,
+      "scarcity": 300,
+      "total_energy": 700
+    },
+    {
+      "tick": 2,
+      "scarcity": 294,
+      "total_energy": 706
+    },
+    {
+      "tick": 3,
+      "scarcity": 282,
+      "total_energy": 718
+    },
+    {
+      "tick": 4,
+      "scarcity": 270,
+      "total_energy": 730
+    },
+    {
+      "tick": 5,
+      "scarcity": 264,
+      "total_energy": 736
+    },
+    {
+      "tick": 6,
+      "scarcity": 253,
+      "total_energy": 747
+    },
+    {
+      "tick": 7,
+      "scarcity": 241,
+      "total_energy": 759
+    },
+    {
+      "tick": 8,
+      "scarcity": 230,
+      "total_energy": 770
+    },
+    {
+      "tick": 9,
+      "scarcity": 211,
+      "total_energy": 789
+    },
+    {
+      "tick": 10,
+      "scarcity": 197,
+      "total_energy": 803
+    },
+    {
+      "tick": 11,
+      "scarcity": 194,
+      "total_energy": 806
+    },
+    {
+      "tick": 12,
+      "scarcity": 202,
+      "total_energy": 798
+    },
+    {
+      "tick": 13,
+      "scarcity": 206,
+      "total_energy": 794
+    },
+    {
+      "tick": 14,
+      "scarcity": 208,
+      "total_energy": 792
+    },
+    {
+      "tick": 15,
+      "scarcity": 203,
+      "total_energy": 797
+    },
+    {
+      "tick": 16,
+      "scarcity": 185,
+      "total_energy": 815
+    },
+    {
+      "tick": 17,
+      "scarcity": 159,
+      "total_energy": 841
+    },
+    {
+      "tick": 18,
+      "scarcity": 140,
+      "total_energy": 860
+    },
+    {
+      "tick": 19,
+      "scarcity": 140,
+      "total_energy": 860
+    },
+    {
+      "tick": 20,
+      "scarcity": 138,
+      "total_energy": 862
+    },
+    {
+      "tick": 21,
+      "scarcity": 148,
+      "total_energy": 852
+    },
+    {
+      "tick": 22,
+      "scarcity": 157,
+      "total_energy": 843
+    },
+    {
+      "tick": 23,
+      "scarcity": 141,
+      "total_energy": 859
+    },
+    {
+      "tick": 24,
+      "scarcity": 105,
+      "total_energy": 895
+    },
+    {
+      "tick": 25,
+      "scarcity": 74,
+      "total_energy": 926
+    },
+    {
+      "tick": 26,
+      "scarcity": 84,
+      "total_energy": 916
+    },
+    {
+      "tick": 27,
+      "scarcity": 82,
+      "total_energy": 918
+    },
+    {
+      "tick": 28,
+      "scarcity": 86,
+      "total_energy": 914
+    },
+    {
+      "tick": 29,
+      "scarcity": 86,
+      "total_energy": 914
+    },
+    {
+      "tick": 30,
+      "scarcity": 89,
+      "total_energy": 911
+    },
+    {
+      "tick": 31,
+      "scarcity": 87,
+      "total_energy": 913
+    },
+    {
+      "tick": 32,
+      "scarcity": 65,
+      "total_energy": 935
+    },
+    {
+      "tick": 33,
+      "scarcity": 30,
+      "total_energy": 970
+    },
+    {
+      "tick": 34,
+      "scarcity": 18,
+      "total_energy": 982
+    },
+    {
+      "tick": 35,
+      "scarcity": 28,
+      "total_energy": 972
+    },
+    {
+      "tick": 36,
+      "scarcity": 32,
+      "total_energy": 968
+    },
+    {
+      "tick": 37,
+      "scarcity": 23,
+      "total_energy": 977
+    },
+    {
+      "tick": 38,
+      "scarcity": 9,
+      "total_energy": 991
+    },
+    {
+      "tick": 39,
+      "scarcity": 1,
+      "total_energy": 999
+    },
+    {
+      "tick": 40,
+      "scarcity": 0,
+      "total_energy": 1003
+    },
+    {
+      "tick": 41,
+      "scarcity": 0,
+      "total_energy": 1012
+    },
+    {
+      "tick": 42,
+      "scarcity": 0,
+      "total_energy": 1025
+    },
+    {
+      "tick": 43,
+      "scarcity": 0,
+      "total_energy": 1038
+    },
+    {
+      "tick": 44,
+      "scarcity": 0,
+      "total_energy": 1034
+    },
+    {
+      "tick": 45,
+      "scarcity": 0,
+      "total_energy": 1036
+    },
+    {
+      "tick": 46,
+      "scarcity": 0,
+      "total_energy": 1050
+    },
+    {
+      "tick": 47,
+      "scarcity": 0,
+      "total_energy": 1052
+    },
+    {
+      "tick": 48,
+      "scarcity": 0,
+      "total_energy": 1078
+    },
+    {
+      "tick": 49,
+      "scarcity": 0,
+      "total_energy": 1090
+    },
+    {
+      "tick": 50,
+      "scarcity": 0,
+      "total_energy": 1092
+    },
+    {
+      "tick": 51,
+      "scarcity": 0,
+      "total_energy": 1092
+    },
+    {
+      "tick": 52,
+      "scarcity": 0,
+      "total_energy": 1082
+    },
+    {
+      "tick": 53,
+      "scarcity": 0,
+      "total_energy": 1083
+    },
+    {
+      "tick": 54,
+      "scarcity": 0,
+      "total_energy": 1085
+    },
+    {
+      "tick": 55,
+      "scarcity": 0,
+      "total_energy": 1104
+    },
+    {
+      "tick": 56,
+      "scarcity": 0,
+      "total_energy": 1111
+    },
+    {
+      "tick": 57,
+      "scarcity": 0,
+      "total_energy": 1106
+    },
+    {
+      "tick": 58,
+      "scarcity": 0,
+      "total_energy": 1101
+    },
+    {
+      "tick": 59,
+      "scarcity": 0,
+      "total_energy": 1113
+    },
+    {
+      "tick": 60,
+      "scarcity": 0,
+      "total_energy": 1139
+    },
+    {
+      "tick": 61,
+      "scarcity": 0,
+      "total_energy": 1162
+    },
+    {
+      "tick": 62,
+      "scarcity": 0,
+      "total_energy": 1191
+    },
+    {
+      "tick": 63,
+      "scarcity": 0,
+      "total_energy": 1204
+    },
+    {
+      "tick": 64,
+      "scarcity": 0,
+      "total_energy": 1210
+    },
+    {
+      "tick": 65,
+      "scarcity": 0,
+      "total_energy": 1210
+    },
+    {
+      "tick": 66,
+      "scarcity": 0,
+      "total_energy": 1210
+    },
+    {
+      "tick": 67,
+      "scarcity": 0,
+      "total_energy": 1222
+    },
+    {
+      "tick": 68,
+      "scarcity": 0,
+      "total_energy": 1240
+    },
+    {
+      "tick": 69,
+      "scarcity": 0,
+      "total_energy": 1258
+    },
+    {
+      "tick": 70,
+      "scarcity": 0,
+      "total_energy": 1252
+    },
+    {
+      "tick": 71,
+      "scarcity": 0,
+      "total_energy": 1247
+    },
+    {
+      "tick": 72,
+      "scarcity": 0,
+      "total_energy": 1243
+    },
+    {
+      "tick": 73,
+      "scarcity": 0,
+      "total_energy": 1258
+    },
+    {
+      "tick": 74,
+      "scarcity": 0,
+      "total_energy": 1287
+    },
+    {
+      "tick": 75,
+      "scarcity": 0,
+      "total_energy": 1283
+    },
+    {
+      "tick": 76,
+      "scarcity": 0,
+      "total_energy": 1294
+    },
+    {
+      "tick": 77,
+      "scarcity": 0,
+      "total_energy": 1311
+    },
+    {
+      "tick": 78,
+      "scarcity": 0,
+      "total_energy": 1314
+    },
+    {
+      "tick": 79,
+      "scarcity": 0,
+      "total_energy": 1348
+    },
+    {
+      "tick": 80,
+      "scarcity": 0,
+      "total_energy": 1376
+    },
+    {
+      "tick": 81,
+      "scarcity": 0,
+      "total_energy": 1372
+    },
+    {
+      "tick": 82,
+      "scarcity": 0,
+      "total_energy": 1361
+    },
+    {
+      "tick": 83,
+      "scarcity": 0,
+      "total_energy": 1362
+    },
+    {
+      "tick": 84,
+      "scarcity": 0,
+      "total_energy": 1381
+    },
+    {
+      "tick": 85,
+      "scarcity": 0,
+      "total_energy": 1366
+    },
+    {
+      "tick": 86,
+      "scarcity": 0,
+      "total_energy": 1391
+    },
+    {
+      "tick": 87,
+      "scarcity": 0,
+      "total_energy": 1408
+    },
+    {
+      "tick": 88,
+      "scarcity": 0,
+      "total_energy": 1419
+    },
+    {
+      "tick": 89,
+      "scarcity": 0,
+      "total_energy": 1428
+    },
+    {
+      "tick": 90,
+      "scarcity": 0,
+      "total_energy": 1437
+    },
+    {
+      "tick": 91,
+      "scarcity": 0,
+      "total_energy": 1449
+    },
+    {
+      "tick": 92,
+      "scarcity": 0,
+      "total_energy": 1455
+    },
+    {
+      "tick": 93,
+      "scarcity": 0,
+      "total_energy": 1449
+    },
+    {
+      "tick": 94,
+      "scarcity": 0,
+      "total_energy": 1451
+    },
+    {
+      "tick": 95,
+      "scarcity": 0,
+      "total_energy": 1480
+    },
+    {
+      "tick": 96,
+      "scarcity": 0,
+      "total_energy": 1492
+    },
+    {
+      "tick": 97,
+      "scarcity": 0,
+      "total_energy": 1486
+    },
+    {
+      "tick": 98,
+      "scarcity": 0,
+      "total_energy": 1496
+    },
+    {
+      "tick": 99,
+      "scarcity": 0,
+      "total_energy": 1489
+    }
+  ],
+  "action_counts": [
+    {
+      "action": "trade",
+      "count": 355
+    },
+    {
+      "action": "gather",
+      "count": 267
+    },
+    {
+      "action": "convert",
+      "count": 178
+    }
+  ],
+  "agents": [
+    {
+      "agent_id": 1,
+      "skill": "convert",
+      "final_energy": 36,
+      "reputation": 2.7,
+      "trade_count": 54,
+      "dominant_action": "convert"
+    },
+    {
+      "agent_id": 2,
+      "skill": "gather",
+      "final_energy": 784,
+      "reputation": 12.2,
+      "trade_count": 144,
+      "dominant_action": "gather"
+    },
+    {
+      "agent_id": 3,
+      "skill": "convert",
+      "final_energy": 13,
+      "reputation": 2.75,
+      "trade_count": 56,
+      "dominant_action": "convert"
+    },
+    {
+      "agent_id": 4,
+      "skill": "trade",
+      "final_energy": 20,
+      "reputation": 20.4,
+      "trade_count": 118,
+      "dominant_action": "trade"
+    },
+    {
+      "agent_id": 5,
+      "skill": "gather",
+      "final_energy": 141,
+      "reputation": 14.6,
+      "trade_count": 70,
+      "dominant_action": "trade"
+    },
+    {
+      "agent_id": 6,
+      "skill": "gather",
+      "final_energy": 92,
+      "reputation": 14.3,
+      "trade_count": 62,
+      "dominant_action": "trade"
+    },
+    {
+      "agent_id": 7,
+      "skill": "trade",
+      "final_energy": 23,
+      "reputation": 20.2,
+      "trade_count": 118,
+      "dominant_action": "trade"
+    },
+    {
+      "agent_id": 8,
+      "skill": "gather",
+      "final_energy": 380,
+      "reputation": 13.7,
+      "trade_count": 88,
+      "dominant_action": "gather"
+    }
+  ],
+  "energy_delta": [
+    {
+      "agent_id": 1,
+      "skill": "convert",
+      "initial_energy": 96,
+      "final_energy": 36,
+      "delta": -60
+    },
+    {
+      "agent_id": 2,
+      "skill": "gather",
+      "initial_energy": 124,
+      "final_energy": 784,
+      "delta": 660
+    },
+    {
+      "agent_id": 3,
+      "skill": "convert",
+      "initial_energy": 57,
+      "final_energy": 13,
+      "delta": -44
+    },
+    {
+      "agent_id": 4,
+      "skill": "trade",
+      "initial_energy": 114,
+      "final_energy": 20,
+      "delta": -94
+    },
+    {
+      "agent_id": 5,
+      "skill": "gather",
+      "initial_energy": 77,
+      "final_energy": 141,
+      "delta": 64
+    },
+    {
+      "agent_id": 6,
+      "skill": "gather",
+      "initial_energy": 54,
+      "final_energy": 92,
+      "delta": 38
+    },
+    {
+      "agent_id": 7,
+      "skill": "trade",
+      "initial_energy": 61,
+      "final_energy": 23,
+      "delta": -38
+    },
+    {
+      "agent_id": 8,
+      "skill": "gather",
+      "initial_energy": 105,
+      "final_energy": 380,
+      "delta": 275
+    }
+  ]
+}
