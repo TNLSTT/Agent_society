@@ -2,29 +2,48 @@
 
 ## Project Description
 
-Agent Society is a framework for constructing and simulating agents in various environments. The goal is to create intelligent systems capable of making decisions and solving problems effectively.
+Agent Society is now an **NPM web app** that runs the Python simulation and renders an interactive dashboard with visualizations for:
 
-## Setup Instructions
+- Total energy over time
+- Scarcity pressure over time
+- Action distribution (doughnut chart)
+- Per-agent energy delta (bar chart)
+- Agent-level outcome table
 
-1. **Clone the Repository**: 
+## Quick Start
+
+1. Install dependencies:
    ```bash
-   git clone https://github.com/TNLSTT/Agent_society.git
-   cd Agent_society
+   npm install
+   ```
+2. Start the app:
+   ```bash
+   npm start
+   ```
+3. Open:
+   ```
+   http://localhost:3000
    ```
 
-2. **Install Dependencies**:
-   - Use the package manager of your choice to install the required dependencies. For example, using pip:
-   ```bash
-   pip install -r requirements.txt
-   ```
+The server auto-generates simulation data (`data/simulation_data.json`) via Python if it does not exist.
 
-3. **Run the Application**:
-   - Follow the relevant instructions in the documentation on how to run the application.
+## Useful Scripts
 
-## Contributing
+- Generate simulation data only:
+  ```bash
+  npm run simulate
+  ```
+- Generate simulation data and start server:
+  ```bash
+  npm run dev
+  ```
 
-Feel free to contribute by submitting pull requests or reporting issues. 
+## Tech Stack
+
+- **Node.js / Express** for API + static web hosting
+- **Python** for simulation execution and data export
+- **Chart.js** for frontend visualizations
 
 ## License
 
-This project is licensed under the MIT License.
+MIT
